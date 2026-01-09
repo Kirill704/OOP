@@ -3,23 +3,23 @@ package org.skypro.skyshop.product;
 public class Product {
 
     private String title;
-    private int cost;
+    private int price;
 
-    public Product(String title, int cost) {
+    public Product(String title, int price) {
         this.title = title;
-        this.cost = cost;
+        this.price = price;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public int getCost() {
-        return cost;
+    public int getPrice() {
+        return price;
     }
 
     @Override
     public String toString() {
-        return title + ": " + cost;
+        return title + ": " + price;
     }
 }

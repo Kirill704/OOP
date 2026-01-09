@@ -12,7 +12,7 @@ public class ProductBasket {
         if (i == -1) {
             System.out.println("невозможно добавить продукт");
         } else {
-            basket[i] = new Product(addProduct.getTitle(), addProduct.getCost());
+            basket[i] = new Product(addProduct.getTitle(), addProduct.getPrice());
         }
     }
 
@@ -29,7 +29,7 @@ public class ProductBasket {
         int sum = 0;
         for (Product product : basket) {
             if (product != null) {
-                sum += product.getCost();
+                sum += product.getPrice();
             }
         }
         return sum;
@@ -43,7 +43,7 @@ public class ProductBasket {
             } else {
                 countFreeSpace++;
             }
-            if (countFreeSpace == 5) {
+            if (countFreeSpace == basket.length) {
                 System.out.println("в корзине пусто");
             }
         }
