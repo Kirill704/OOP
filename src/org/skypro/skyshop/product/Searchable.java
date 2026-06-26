@@ -9,4 +9,5 @@ public interface Searchable {
     default String getStringRepresentation() {
         return "Объект типа" + contentType() + ": " + nameObject();
     }
+
 }
