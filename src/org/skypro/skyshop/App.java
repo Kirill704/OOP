@@ -1,10 +1,10 @@
 package org.skypro.skyshop;
 
 import org.skypro.skyshop.basket.ProductBasket;
-import org.skypro.skyshop.product.DiscountedProduct;
-import org.skypro.skyshop.product.FixPriceProduct;
-import org.skypro.skyshop.product.Product;
-import org.skypro.skyshop.product.SimpleProduct;
+import org.skypro.skyshop.product.*;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -53,5 +53,23 @@ public class App {
         System.out.println("поиск товара в пустой корзине, результат:");
         String targetTitle2 = "степлер";
         System.out.println(productBasket.findProduct(targetTitle2));
+
+        SearchEngine checkElements = new SearchEngine(20);
+
+        Article article0 = new Article("отзыв на степлер", "отличный");
+        Article article1 = new Article("отзыв на блокнот", "хороший");
+
+        checkElements.add(article0);
+        checkElements.add(article1);
+        checkElements.add(product3);
+        checkElements.add(product1);
+        checkElements.add(product2);
+
+        System.out.println();
+        System.out.println("поиск товара и статей по названию, результат:");
+        checkElements.search("степлер");
+        checkElements.search("блокнот");
+        checkElements.search("календарь");
+
     }
 }
