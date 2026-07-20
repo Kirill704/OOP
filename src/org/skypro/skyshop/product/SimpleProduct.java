@@ -20,13 +20,11 @@ public class SimpleProduct extends Product {
 
     @Override
     public String toString() {
-        return "\n" + contentType() + ": " + title + "\nцена: " + price;
+        return "\n" + getStringRepresentation() + "\nцена: " + price;
     }
 
     @Override
     public boolean isSpecial() {
         return false;
     }
-
-
 }

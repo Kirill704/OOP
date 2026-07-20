@@ -81,14 +81,12 @@ public class App {
         try {
             System.out.println();
             System.out.println("поиск самого подходящего элемента");
-            checkElements.searchable("блокнот");
+            checkElements.searchable("kjdhk");
         } catch (BestResultNotFound e) {
             e.printStackTrace();
         }
 
     }
-
-
 
     private static void eXp() {
         Product productInvalid0 = new SimpleProduct("ручка", 0);

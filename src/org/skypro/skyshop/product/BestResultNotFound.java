@@ -8,5 +8,8 @@ public class BestResultNotFound extends Exception {
         this.s = s;
     }
 
-
+    @Override
+    public String toString() {
+        return "BestResultNotFound: " + s;
+    }
 }

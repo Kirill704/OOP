@@ -11,7 +11,6 @@ public class DiscountedProduct extends Product {
         }
         this.basePrice = basePrice;
         this.discountPercent = discountPercent;
-
     }
 
     @Override
@@ -21,13 +20,11 @@ public class DiscountedProduct extends Product {
 
     @Override
     public String toString() {
-        return "\n" + contentType() + ": " + title + "\nцена: " + getPrice() + " (" + discountPercent + "%)";
+        return "\n" + getStringRepresentation() + "\nцена: " + getPrice() + " (" + discountPercent + "%)";
     }
 
     @Override
     public boolean isSpecial() {
         return true;
     }
-
-
 }

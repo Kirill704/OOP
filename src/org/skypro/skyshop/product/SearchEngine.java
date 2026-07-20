@@ -43,29 +43,29 @@ public class SearchEngine {
     }
 
 
-
-    public Searchable searchable(String search) throws BestResultNotFound {
+    public void searchable(String search) throws BestResultNotFound {
         Searchable searchable = null;
-               int maxCount = 0;
-        for (Searchable s : checkElements) {
-            int count = 0;
-            int index = 0;
-            int indexString=s.nameObject().indexOf(search,index);
-            while (indexString!=-1){
-                count++;
-                index=indexString+search.length();
-                indexString=s.nameObject().indexOf(search,index);
-            }
-            if (count > maxCount) {
-                maxCount = count;
-                searchable=s;
+        int maxCount = 0;
+        for (int i = 0; i < checkElements.length; i++) {
+            if (checkElements[i] != null) {
+                int count = 0;
+                int index = 0;
+                int indexString = checkElements[i].nameObject().indexOf(search, index);
+                while (indexString != -1) {
+                    count++;
+                    index = indexString + search.length();
+                    indexString = checkElements[i].nameObject().indexOf(search, index);
+                }
+                if (count > maxCount) {
+                    maxCount = count;
+                    searchable = checkElements[i];
+                }
             }
         }
-        if (maxCount==0) {
-
+        if (maxCount == 0) {
             throw new BestResultNotFound("элемент не найден");
         }
-        return searchable;
+        System.out.println(searchable);
     }
 
 }
