@@ -22,6 +22,7 @@ public final class Article implements Searchable {
         return "ARTICLE";
     }
 
+
     @Override
     public String toString() {
         return "\n"+contentType() + ": " + articleTitle + "\nТекст: " + text;

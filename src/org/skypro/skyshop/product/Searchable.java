@@ -10,4 +10,6 @@ public interface Searchable {
         return "Объект типа" + contentType() + ": " + nameObject();
     }
 
+
+
 }

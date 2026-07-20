@@ -7,6 +7,9 @@ public class SimpleProduct extends Product {
 
     public SimpleProduct(String title, int price) {
         super(title);
+        if (price <= 0) {
+            throw new IllegalArgumentException("недопустимое значение цены");
+        }
         this.price = price;
     }
 
@@ -17,12 +20,13 @@ public class SimpleProduct extends Product {
 
     @Override
     public String toString() {
-        return "\n"+contentType()+": "+title + "\nцена: " + price;
+        return "\n" + contentType() + ": " + title + "\nцена: " + price;
     }
 
     @Override
     public boolean isSpecial() {
         return false;
     }
+
 
 }
