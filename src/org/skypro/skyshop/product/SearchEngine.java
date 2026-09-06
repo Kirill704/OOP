@@ -1,6 +1,8 @@
 package org.skypro.skyshop.product;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class SearchEngine {
@@ -38,6 +40,32 @@ public class SearchEngine {
             }
         }
         System.out.println(Arrays.toString(results));
+    }
+
+
+    public void searchable(String search) throws BestResultNotFound {
+        Searchable searchable = null;
+        int maxCount = 0;
+        for (int i = 0; i < checkElements.length; i++) {
+            if (checkElements[i] != null) {
+                int count = 0;
+                int index = 0;
+                int indexString = checkElements[i].nameObject().indexOf(search, index);
+                while (indexString != -1) {
+                    count++;
+                    index = indexString + search.length();
+                    indexString = checkElements[i].nameObject().indexOf(search, index);
+                }
+                if (count > maxCount) {
+                    maxCount = count;
+                    searchable = checkElements[i];
+                }
+            }
+        }
+        if (maxCount == 0) {
+            throw new BestResultNotFound("элемент не найден");
+        }
+        System.out.println(searchable);
     }
 
 }

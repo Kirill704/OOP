@@ -9,9 +9,11 @@ public final class Article implements Searchable {
         this.articleTitle = articleTitle;
         this.text = text;
     }
+
     public String getText() {
         return text;
     }
+
     @Override
     public String nameObject() {
         return articleTitle;
@@ -22,8 +24,9 @@ public final class Article implements Searchable {
         return "ARTICLE";
     }
 
+
     @Override
     public String toString() {
-        return "\n"+contentType() + ": " + articleTitle + "\nТекст: " + text;
+        return "\n" + getStringRepresentation() + "\nТекст: " + text;
     }
 }

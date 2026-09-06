@@ -3,13 +3,19 @@ package org.skypro.skyshop;
 import org.skypro.skyshop.basket.ProductBasket;
 import org.skypro.skyshop.product.*;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws BestResultNotFound {
+
+        try {
+            eXp();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println();
+
         ProductBasket productBasket = new ProductBasket();
 
         Product product0 = new SimpleProduct("ручка", 100);
@@ -59,6 +65,7 @@ public class App {
         Article article0 = new Article("отзыв на степлер", "отличный");
         Article article1 = new Article("отзыв на блокнот", "хороший");
 
+
         checkElements.add(article0);
         checkElements.add(article1);
         checkElements.add(product3);
@@ -71,5 +78,19 @@ public class App {
         checkElements.search("блокнот");
         checkElements.search("календарь");
 
+        try {
+            System.out.println();
+            System.out.println("поиск самого подходящего элемента");
+            checkElements.searchable("kjdhk");
+        } catch (BestResultNotFound e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private static void eXp() {
+        Product productInvalid0 = new SimpleProduct("ручка", 0);
+        Product productInvalid1 = new DiscountedProduct("календарь", 0, 20);
+        Product productInvalid2 = new DiscountedProduct("календарь", 100, 200);
     }
 }
